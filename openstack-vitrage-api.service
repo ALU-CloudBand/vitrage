@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenStack Root Cause Analysis service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=vitrage
+ExecStart=/usr/bin/vitrage-api --logfile /var/log/vitrage/api.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

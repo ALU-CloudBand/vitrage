@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenStack Vitrage graph service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=vitrage
+ExecStart=/usr/bin/vitrage-graph --logfile /var/log/vitrage/graph.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
