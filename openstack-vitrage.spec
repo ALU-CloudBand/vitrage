@@ -45,7 +45,7 @@ Requires:         python-oslo-messaging > 2.6.1
 Requires:         python-oslo-service >= 0.1.0
 Requires:         python-oslo-utils >= 1.6.0
 Requires:         python-keystonemiddleware >= 2.2.0
-Requires:         python-pbr >=1.6
+Requires:         python-pbr >= 1.6
 Requires:         python-pecan >= 0.8.0
 Requires:         python-stevedore >= 1.5.0
 Requires:         python-werkzeug >= 0.7
@@ -53,9 +53,9 @@ Requires:         python-paste-deploy >= 1.5.0
 Requires:         python-ceilometerclient >= 2.2.1
 Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
-Requires:         python-cinderclient >=1.3.1
+Requires:         python-cinderclient >= 1.3.1
 Requires:         python-neutronclient >= 2.6.0
-Requires:         python-novaclient >=2.26.0
+Requires:         python-novaclient >= 2.26.0
 Requires:         python-networkx >= 1.10
 Requires:         python-exrex >= 0.9.4
 Requires:         python-voluptuous >= 0.8.8
@@ -100,7 +100,7 @@ Summary:        OpenStack vitrage graph
 
 Requires:       %{name}-common = %{version}-%{release}
 
-%description vitrage
+%description graph
 OpenStack vitrage provides API and services for RCA (Root Cause Analysis).
 
 This package contains the vitrage graph service.
@@ -111,7 +111,7 @@ Summary:        OpenStack vitrage notifier
 
 Requires:       %{name}-common = %{version}-%{release}
 
-%description vitrage
+%description notifier
 OpenStack vitrage provides API and services for RCA (Root Cause Analysis).
 
 This package contains the vitrage notifier service.
