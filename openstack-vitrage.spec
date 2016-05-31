@@ -149,7 +149,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 install -d -m 755 %{buildroot}%{_sysconfdir}/vitrage
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/vitrage/vitrage.conf
 install -p -D -m 640 etc/vitrage/policy.json %{buildroot}%{_sysconfdir}/vitrage/policy.json
-install -p -D -m 640 etc/vitrage/api_paste.ini %{buildroot}%{_sysconfdir}/vitrage/api_paste.ini
+install -p -D -m 640 etc/vitrage/api-paste.ini %{buildroot}%{_sysconfdir}/vitrage/api-paste.ini
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/vitrage
@@ -208,7 +208,7 @@ exit 0
 %dir %{_sysconfdir}/vitrage
 %config(noreplace) %attr(-, root, vitrage) %{_sysconfdir}/vitrage/vitrage.conf
 %config(noreplace) %attr(-, root, vitrage) %{_sysconfdir}/vitrage/policy.json
-%config(noreplace) %attr(-, root, vitrage) %{_sysconfdir}/vitrage/api_paste.ini
+%config(noreplace) %attr(-, root, vitrage) %{_sysconfdir}/vitrage/api-paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, vitrage, root)  %{_localstatedir}/log/vitrage
 
