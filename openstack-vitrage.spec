@@ -146,15 +146,18 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # Install config files
-install -d -m 755 %{buildroot}%{_sysconfdir}/vitrage
+install -d -m 755 %{buildroot}%{_sysconfdir}/vitrage/datasources_values
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/vitrage/vitrage.conf
 install -p -D -m 640 etc/vitrage/policy.json %{buildroot}%{_sysconfdir}/vitrage/policy.json
 install -p -D -m 640 etc/vitrage/api-paste.ini %{buildroot}%{_sysconfdir}/vitrage/api-paste.ini
+install -p -D -m 640 etc/vitrage/datasources_values/*.yaml %{buildroot}%{_sysconfdir}/vitrage/datasources_values/
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/vitrage
 install -d -m 755 %{buildroot}%{_sharedstatedir}/vitrage/tmp
 install -d -m 755 %{buildroot}%{_localstatedir}/log/vitrage
+install -d -m 640 %{buildroot}%{_sysconfdir}/vitrage/static_datasources
+install -d -m 640 %{buildroot}%{_sysconfdir}/vitrage/templates
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -165,7 +168,7 @@ install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-graph.service
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-notifier.service
 
 # Remove unused files
-rm -f %{buildroot}/usr/etc/gnocchi/*
+rm -f %{buildroot}/usr/etc/vitrage/*
 
 %pre common
 getent group vitrage >/dev/null || groupadd -r vitrage
