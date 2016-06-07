@@ -57,10 +57,9 @@ Requires:         python-cinderclient >= 1.3.1
 Requires:         python-neutronclient >= 2.6.0
 Requires:         python-novaclient >= 2.26.0
 Requires:         python-networkx >= 1.10
-Requires:         python-exrex >= 0.9.4
 Requires:         python-voluptuous >= 0.8.8
-Requires:         python-sympy >= 0.7.6.1
-Requires:         python-dateutil >= 2.4.2
+Requires:         python-sympy >= 0.7.6
+Requires:         python-dateutil >= 1.5
 
 %description -n   python-vitrage
 OpenStack vitrage provides API and services for RCA (Root Cause Analysis)
