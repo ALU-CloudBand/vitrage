@@ -51,7 +51,6 @@ Requires:         python-stevedore >= 1.5.0
 Requires:         python-werkzeug >= 0.7
 Requires:         python-paste-deploy >= 1.5.0
 Requires:         python-ceilometerclient >= 2.2.1
-Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
 Requires:         python-cinderclient >= 1.3.1
 Requires:         python-neutronclient >= 2.6.0
