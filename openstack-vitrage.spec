@@ -57,7 +57,7 @@ Requires:         python-neutronclient >= 2.6.0
 Requires:         python-novaclient >= 2.26.0
 Requires:         python-networkx >= 1.10
 Requires:         python-voluptuous >= 0.8.8
-Requires:         python-sympy >= 0.7.6
+Requires:         sympy >= 0.7.6
 Requires:         python-dateutil >= 1.5
 
 %description -n   python-vitrage
