@@ -1,4 +1,4 @@
-%global pypi_name vitrage
+%global service vitrage
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -9,10 +9,10 @@ Summary:          OpenStack Root Cause Analysis
 License:          ASL 2.0
 URL:              https://github.com/openstack/vitrage.git
 BuildArch:        noarch
-Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:          http://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz
 
-Source1:          %{pypi_name}.conf.sample
-Source2:          %{pypi_name}.logrotate
+Source1:          %{service}.conf.sample
+Source2:          %{service}.logrotate
 Source10:         %{name}-api.service
 Source11:         %{name}-graph.service
 Source12:         %{name}-notifier.service
@@ -37,7 +37,7 @@ Summary:          OpenStack vitrage python libraries
 
 Requires:         python-lxml
 
-Requires:         python-oslo-config >= 2.6.0
+Requires:         python-oslo-config >= 2:2.6.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
 Requires:         python-oslo-policy >= 0.5.0
@@ -51,7 +51,7 @@ Requires:         python-stevedore >= 1.5.0
 Requires:         python-werkzeug >= 0.7
 Requires:         python-paste-deploy >= 1.5.0
 Requires:         python-ceilometerclient >= 2.2.1
-Requires:         python-keystoneclient >= 1.6.0
+Requires:         python-keystoneclient >= 1:1.6.0
 Requires:         python-cinderclient >= 1.3.1
 Requires:         python-neutronclient >= 2.6.0
 Requires:         python-novaclient >= 2.26.0
@@ -126,7 +126,7 @@ This package contains the Vitrage test files.
 
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%setup -q -n %{service}-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -138,6 +138,8 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 
 %build
+# Generate config file
+PYTHONPATH=. oslo-config-generator --config-file=etc/vitrage/vitrage-config-generator.conf
 %{__python2} setup.py build
 
 %install
@@ -197,7 +199,6 @@ exit 0
 %files -n python-vitrage
 %{python2_sitelib}/vitrage
 %{python2_sitelib}/vitrage-*.egg-info
-%license LICENSE
 %exclude %{python2_sitelib}/vitrage/tests
 
 %files -n python-vitrage-tests
