@@ -156,8 +156,8 @@ install -p -D -m 640 etc/vitrage/datasources_values/*.yaml %{buildroot}%{_syscon
 install -d -m 755 %{buildroot}%{_sharedstatedir}/vitrage
 install -d -m 755 %{buildroot}%{_sharedstatedir}/vitrage/tmp
 install -d -m 755 %{buildroot}%{_localstatedir}/log/vitrage
-install -d -m 640 %{buildroot}%{_sysconfdir}/vitrage/static_datasources
-install -d -m 640 %{buildroot}%{_sysconfdir}/vitrage/templates
+install -d -m 755 %{buildroot}%{_sysconfdir}/vitrage/static_datasources
+install -d -m 755 %{buildroot}%{_sysconfdir}/vitrage/templates
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
