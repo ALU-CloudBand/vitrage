@@ -215,8 +215,8 @@ exit 0
 %config(noreplace) %attr(-, root, vitrage) %{_sysconfdir}/vitrage/datasources_values/*.yaml
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, vitrage, root)  %{_localstatedir}/log/vitrage
-%dir %attr(0640, vitrage, root)  %{_sysconfdir}/vitrage/static_datasources
-%dir %attr(0640, vitrage, root)  %{_sysconfdir}/vitrage/templates
+%dir %attr(0755, vitrage, root)  %{_sysconfdir}/vitrage/static_datasources
+%dir %attr(0755, vitrage, root)  %{_sysconfdir}/vitrage/templates
 
 %defattr(-, vitrage, vitrage, -)
 %dir %{_sharedstatedir}/vitrage
