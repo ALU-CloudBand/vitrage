@@ -23,6 +23,7 @@ BuildRequires:    python2-devel
 BuildRequires:    systemd
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-messaging
 
 
 
