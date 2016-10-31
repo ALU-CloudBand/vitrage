@@ -24,6 +24,7 @@ BuildRequires:    systemd
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-messaging
+BuildRequires:    python-oslo-config
 
 
 
