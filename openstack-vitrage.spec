@@ -7,9 +7,9 @@ Version:          XXX
 Release:          XXX
 Summary:          OpenStack Root Cause Analysis
 License:          ASL 2.0
-URL:              https://github.com/openstack/vitrage.git
+URL:              https://github.com/openstack/vitrage
 BuildArch:        noarch
-Source0:          http://tarballs.openstack.org/%{service}/%{service}-%{version}.tar.gz
+Source0:          http://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
 Source1:          %{service}.conf.sample
 Source2:          %{service}.logrotate
@@ -25,6 +25,8 @@ BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-messaging
 BuildRequires:    python-oslo-config
+BuildRequires:    python-keystoneauth1
+BuildRequires:    python-keystoneclient
 
 
 
@@ -53,7 +55,7 @@ Requires:         python-stevedore >= 1.5.0
 Requires:         python-werkzeug >= 0.7
 Requires:         python-paste-deploy >= 1.5.0
 Requires:         python-ceilometerclient >= 2.2.1
-Requires:         python-keystoneclient >= 1:1.6.0
+Requires:         python-keystoneclient >= 3.5.0
 Requires:         python-cinderclient >= 1.3.1
 Requires:         python-neutronclient >= 2.6.0
 Requires:         python-novaclient >= 2.26.0
@@ -61,6 +63,7 @@ Requires:         python-networkx >= 1.10
 Requires:         python-voluptuous >= 0.8.8
 Requires:         sympy >= 0.7.6
 Requires:         python-dateutil >= 1.5
+Requires:         python-keystoneauth1 >= 2.12.1
 
 %description -n   python-vitrage
 OpenStack vitrage provides API and services for RCA (Root Cause Analysis)
@@ -201,11 +204,11 @@ exit 0
 %files -n python-vitrage
 %{python2_sitelib}/vitrage
 %{python2_sitelib}/vitrage-*.egg-info
-%exclude %{python2_sitelib}/vitrage/tests
+%exclude %{python2_sitelib}/vitrage_tempest_tests
 
 %files -n python-vitrage-tests
 %license LICENSE
-%{python2_sitelib}/vitrage/tests
+%{python2_sitelib}/vitrage_tempest_tests
 
 %files common
 %doc README.rst
